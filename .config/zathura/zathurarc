@@ -1,0 +1,10 @@
+set default-bg "#0d0d0d"
+
+set recolor true
+set recolor-lightcolor "#0d0d0d"
+# set recolor-darkcolor "#DDDDDD"
+# set index-active-bg "#D99662"
+# set highlight-color "#D99662"
+# set highlight-fg "#000000"
+# set highlight-active-color "#D99662"
+set adjust-open "best-fit"
