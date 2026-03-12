@@ -1,0 +1,6 @@
+#This rule start the bose-keys service when a bluetooth is connected.
+#the service runs a script that filter events by Bose NC 700... 
+#put this file in /etc/udev/rules.d/ and reload udev
+#   sudo udevadm control --reload
+#   sudo udevadm trigger
+SUBSYSTEM=="input", ENV{ID_BUS}=="bluetooth", TAG+="systemd", ENV{SYSTEMD_WANTS}="bose-keys.service"

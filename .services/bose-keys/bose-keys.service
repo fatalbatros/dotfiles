@@ -1,0 +1,13 @@
+#This service runs the script bose-keys (dont forget to make it executable).
+#To triger the serive only when the Bose headset is connected
+#put this file in /etc/systemd/system/
+#and run systemctl daemon-reload
+[Unit]
+Description=Bose Headset Media Keys to MPD
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/bose-keys.sh
+
+[Install]
+WantedBy=multi-user.target
