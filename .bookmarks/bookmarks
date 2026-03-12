@@ -13,7 +13,6 @@ open() {
         dmenu -sb "$GRAY" -nb "$BLACK" -nf "$WHITE" -sf "$WHITE" -i -l 15 |
         awk -F ' *\\| *' '{print $1}'
     )
-    echo "$url"
     grep -Fq "$url" "$DB" && xdg-open "$url"
 }
 
