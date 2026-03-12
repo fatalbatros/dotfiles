@@ -71,6 +71,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slock } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_z,      spawn,          {.v = zathura } },
+	{ MODKEY,                       XK_o,      spawn,          SHCMD("/home/alba/.bookmarks/bookmarks open") },
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("/home/alba/.bookmarks/bookmarks add") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

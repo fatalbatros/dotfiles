@@ -1,0 +1,58 @@
+#!/bin/sh
+
+DB="/home/alba/.bookmarks/db"
+BLACK="#080808"
+GRAY="#404040"
+WHITE="#FFFFFF"
+RED="#3A0A0A"
+
+open() { 
+    url=$(
+        awk -F ' *\\| *' '{printf "%-70s | %s\n", $1, $2}' "$DB" |
+        sort |
+        dmenu -sb "$GRAY" -nb "$BLACK" -nf "$WHITE" -sf "$WHITE" -i -l 15 |
+        awk -F ' *\\| *' '{print $1}'
+    )
+    echo "$url"
+    grep -Fq "$url" "$DB" && xdg-open "$url"
+}
+
+
+add() {
+    if [ -n "$1" ]; then
+        url="$1"
+    else
+        url=$(xclip -selection clipboard -o)
+    fi
+
+    echo "$url" | grep -Eq '^https?://[^ ]+$' || {
+        printf "Invalid URL: %s\n" "$url" |
+        dmenu -sb "$RED" -nb "$BLACK" -sf "$WHITE" -nf "$WHITE" -l 1 -p "Error"
+        exit
+    }
+
+    if grep -Fq "$url" "$DB"; then
+        printf "Bookmark already exists: %s\n" "$url" |
+        dmenu -sb "$RED" -nb "$BLACK" -sf "$WHITE" -nf "$WHITE" -l 1 -p "Error"
+        exit
+    fi
+
+    tags=$(printf "" | dmenu -nb "$BLACK" -sb "$GRAY" -sf "$WHITE" -nf "$WHITE" -p "$url - Tags:")
+    [ -z "$tags" ] && exit
+
+    printf "%s | %s \n" "$url" "$tags" >> "$DB"
+}
+
+
+usage() {
+    echo "Usage: bookmarks {add [url] | open}"
+}
+
+cmd="$1"
+shift
+
+case "$cmd" in
+    add) add "$@" ;;
+    open) open "$@";;
+esac
+
