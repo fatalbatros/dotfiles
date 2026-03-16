@@ -64,10 +64,12 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *slock[]  = { "slock", NULL };
 static const char *zathura[]  = { "zathura", NULL };
+static const char *screenshot[] = { "scrot", "-s", "~/Downloads/screenshots/%Y-%m-%d_%H-%M-%S.png", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{0,                             XK_Print,  spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slock } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_z,      spawn,          {.v = zathura } },

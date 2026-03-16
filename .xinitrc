@@ -3,6 +3,9 @@
 xset r rate 400 50
 setxkbmap -option caps:swapescape
 xsetroot -solid "#080808"
+xinput set-prop "pointer:Logitech M280/320/275" "libinput Accel Profile Enabled" 0, 1
+xinput set-prop "pointer:Logitech M280/320/275" "libinput Accel Speed" 0.3
+
 
 while true; do
     stat=" "
@@ -11,21 +14,8 @@ while true; do
     if [ $MEMORY -lt 2000000 ]; then 
         stat+='LOW_MEMORY '
     fi
-
-    if [ -f /sys/class/net/wlan0/operstate ]; then 
-        if [ "$(cat /sys/class/net/wlan0/operstate)" = "down" ]; then
-            stat+='NO_SIGNAL '
-        fi
-    else
-        stat+='NO_WIRELESS_DEVICE '
-    fi
-
-    BATERY=$(cat /sys/class/power_supply/BAT0/capacity)
-    export BAT=$BATERY
-    if [ $BATERY -lt 30 ]; then 
-        stat+='LOW_BATERY '
-    fi
-#     stat+=$BATERY
+    
+    stat+=$(date +%_H:%M)
     xsetroot -name "$stat"
     sleep 1m
 done &
