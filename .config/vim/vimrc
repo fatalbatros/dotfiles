@@ -102,7 +102,7 @@ nnoremap Q @q
 
 " ---  CLIPBOARD ---
 noremap <silent> <space>y "yy <Bar> :call system('xclip -selection "clipboard"', @y)<CR>
-noremap <silent> <space>p :r!xclip -o<CR>
+noremap <silent> <space>p :call setreg('"', system('xclip -selection clipboard -o'))<CR>p
 
 
 " --- RESIZING ---
