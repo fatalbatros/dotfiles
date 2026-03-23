@@ -1,4 +1,5 @@
 " --- PLUGINS --- 
+set nocp
 filetype plugin on
 packadd vim-fugitive
 packadd lsp
@@ -85,6 +86,7 @@ let g:netrw_banner=0
 let g:netrw_altfile=1
 let g:netrw_cursor=0
 let g:netrw_preview=1
+let g:netrw_ssh_cmd="ssh"
 
 
 " --- SEARCH ---
@@ -150,7 +152,14 @@ vnoremap <silent> <A-q> :<C-U>call <SID>vUnComment()<CR>gv
 nnoremap <silent> <space>l :call <SID>LIST()<CR>
 nnoremap <silent> <space>m :call <SID>MARKS()<CR>
 
-
+" --- MARKDOWN ---
+let g:markdown_fenced_languages = [
+  \ 'bash=sh',
+  \ 'rust=rust',
+  \ 'python=python',
+  \ 'typescript=typescript',
+  \ 'cairo=cairo',
+\ ]
 
 " --- FUNCTIONS ---
 def Statusline(): string
