@@ -160,3 +160,13 @@ hi! PmenuSel        ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#8C8C8
 hi! PmenuSbar       ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#8C8C8C    guibg=#080808    gui=NONE
 hi! PmenuThumb      ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#8C8C8C    guibg=#080808    gui=NONE
 
+" --------------------------------
+" Markdown / HTML emphasis
+" --------------------------------
+hi! htmlBold        ctermfg=Gray        ctermbg=Black    cterm=bold    guifg=#DDDDDD    guibg=#080808    gui=bold
+hi! htmlItalic      ctermfg=Gray        ctermbg=Black    cterm=italic  guifg=#8C8C8C    guibg=#080808    gui=italic
+hi! htmlH1          ctermfg=Gray        ctermbg=Black    cterm=bold    guifg=#DDDDDD    guibg=#080808    gui=bold
+
+hi! link markdownBold htmlBold
+hi! link markdownItalic htmlItalic
+hi! link markdownH1 htmlH1
