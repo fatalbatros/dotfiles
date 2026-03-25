@@ -77,7 +77,7 @@ set fillchars+=vert:\
 
 
 " --- COMPLETION and K ---
-set completeopt=menu,popup
+set completeopt=menu,popup,noinsert,fuzzy
 set keywordprg=
 
 
