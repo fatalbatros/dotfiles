@@ -155,7 +155,7 @@ hi! DiffText        ctermfg=White    ctermbg=Black    cterm=NONE    guifg=#F2F2F
 " --------------------------------
 " Completion menu
 " --------------------------------
-hi! Pmenu           ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#0d0d0d    guibg=#404040    gui=NONE
+hi! Pmenu           ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#080808    guibg=#404040    gui=NONE
 hi! PmenuSel        ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#8C8C8C    guibg=#404040    gui=NONE
 hi! PmenuSbar       ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#8C8C8C    guibg=#080808    gui=NONE
 hi! PmenuThumb      ctermfg=Gray     ctermbg=Black    cterm=NONE    guifg=#8C8C8C    guibg=#080808    gui=NONE
