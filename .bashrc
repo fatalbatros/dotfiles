@@ -52,3 +52,13 @@ unmark () {
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx
 fi
+
+# pnpm
+export PNPM_HOME="/home/alba/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+export PATH="$HOME/.local/bin:$PATH"

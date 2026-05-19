@@ -12,7 +12,7 @@ colorscheme alba
 
 
 " -- HOTKEYS ---
-"My terminal send <Esc> as ^[ and <Alt-x> as ^[x. Read :help set-termcap for reference, you can check what the term send with sed -n l.
+"My terminal send <Esc> as ^[ and <Alt-j> as ^[j. Read :help set-termcap for reference, you can check what the term send with sed -n l.
 "This have two problems
 " 1 - Hotkeys like Alt+j are not being recognized unless they are maped to j.
 " 2 - When they are mapped, when presing esc () vim waits to undersand if you want to send an esc or if you are typing Alt+j (j). This can

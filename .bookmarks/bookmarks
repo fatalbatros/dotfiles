@@ -11,7 +11,7 @@ open() {
         awk -F ' *\\| *' '{printf "%-70s | %s\n", $2, $1}' "$DB" |
         sort |
         dmenu -sb "$GRAY" -nb "$BLACK" -nf "$WHITE" -sf "$WHITE" -i -l 15 |
-        awk -F ' *\\| *' '{print $1}'
+        awk -F ' *\\| *' '{print $2}'
     )
     grep -Fq "$url" "$DB" && xdg-open "$url"
 }
